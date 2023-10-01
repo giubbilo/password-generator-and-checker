@@ -13,12 +13,12 @@ int main()
     string alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!£$%&/?@#()[]{}*";
     int alphabet_length = alphabet.length();
 
-    cout << "What do you want to do?" << endl;
+    cout << endl << "What do you want to do?" << endl << endl;
     cout << "Press 1 to generate a password" << endl;
     cout << "Press 2 to check how much your password is strong" << endl;
     do
     {
-        cout << "Press 1 or 2 and hit enter: ";  
+        cout << "1 or 2 and hit enter: ";  
         cin >> choice;
     } while (choice != '1' && choice != '2');
     
@@ -49,7 +49,6 @@ int main()
             cout << endl << "Type your password: ";
             cin >> password;
             cout << endl << "Checking it..." << endl;
-            cout << "- Length: " << password.length() << endl;
             for (char c : password)
             {
                 if (isdigit(c))
@@ -61,6 +60,9 @@ int main()
                 if (!isalnum(c))
                     foundSymbol = true;
             }
+            if (!foundNumber || !foundLower || !foundUpper || !foundSymbol || password.length() <= 8)
+                cout << "Your password is weak!" << endl;
+            cout << "- Length: " << password.length() << endl;
             if (foundNumber)
                 cout << "- Numbers: OK" << endl;
                 else
