@@ -10,7 +10,7 @@ int main()
 {
     int dim;
     char exit, choice;
-    string alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!£$%&/?@#*";
+    string alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!£$%&/?@#()[]{}*";
     int alphabet_length = alphabet.length();
 
     cout << "What do you want to do?" << endl;
@@ -18,10 +18,11 @@ int main()
     cout << "Press 2 to check how much your password is strong" << endl;
     do
     {
-        cout << "Press 1 or 2 and hit enter: ";  
+        cout << "Press 1 or 2 and hit enter: ? ";  
         cin >> choice;
     } while (choice != '1' && choice != '2');
     
+    // Password Generator
     if (choice == '1')
     {
         do
@@ -40,6 +41,7 @@ int main()
             cout << alphabet[rand() % alphabet_length]; 
         }
     }
+        // Password Checker
         else if (choice == '2')
         {
             string password;
