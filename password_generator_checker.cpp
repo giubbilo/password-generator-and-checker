@@ -18,7 +18,7 @@ int main()
     cout << "Press 2 to check how much your password is strong" << endl;
     do
     {
-        cout << "Press 1 or 2 and hit enter: ? ";  
+        cout << "Press 1 or 2 and hit enter: ";  
         cin >> choice;
     } while (choice != '1' && choice != '2');
     
@@ -30,10 +30,10 @@ int main()
             cout << endl << "Type the length of the password you want: ";
             cin >> dim;
             if (dim <= 8)
-                cout << "Password could be weak!" << endl;
+                cout << "Too short! Password could be weak!" << endl;
         } while (dim <= 0);
 
-        cout << endl << "(by default the password will contain numbers, letters (capital and non) and special symbols)" << endl;
+        cout << endl << "(by default the password could contain numbers, letters (capital and non) and special symbols)" << endl;
         srand(time(0));
         cout << "Generated password is: ";
         for (int i = 0; i < dim; i++)
