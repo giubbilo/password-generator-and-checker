@@ -1,6 +1,6 @@
 # Password Generator and Checker
 
-Hi there 👋, this is a program written in C++ that allows you to choose between a password generation and a password checker.
+Hi there 👋, this is a program written in C++ that allows you to generate a password or to check a password (kind of).
 
 ## Password generator
 It generates a password with the following rules:
