@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cstdlib>
 #include <string>
 #include <cctype>
-#include <ctime>
+#include <chrono>
+#include <random>
 
 using namespace std;
 
@@ -25,6 +25,14 @@ int main()
     // Password Generator
     if (choice == '1')
     {
+        auto currentTime = chrono::high_resolution_clock::now().time_since_epoch();
+        // Convert the duration to a seed value
+        unsigned seed = static_cast<unsigned>(currentTime.count());
+        // Create a random number generator with the current time as the seed
+        default_random_engine rng(seed);
+        // Create a distribution, for example, to generate random integers between 1 and 100
+        uniform_int_distribution<int> distribution(1, 4096);
+        
         do
         {
             cout << endl << "Type the length of the password you want: ";
@@ -34,11 +42,11 @@ int main()
         } while (dim <= 0);
 
         cout << endl << "(by default the password could contain numbers, letters (capital and non) and special symbols)" << endl;
-        srand(time(0));
+        // srand(time(0));
         cout << "Generated password is: ";
         for (int i = 0; i < dim; i++)
         {
-            cout << alphabet[rand() % alphabet_length]; 
+            cout << alphabet[distribution(rng) % alphabet_length]; 
         }
     }
         // Password Checker
